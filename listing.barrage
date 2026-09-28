@@ -1,0 +1,43 @@
+# Skill: GitHub X Latest Push
+
+> A Grok skill that shows the latest GitHub push next to any related posts on X.
+
+## Purpose
+Explain the skill as a two-pane view: what just shipped on GitHub, and whether X mentioned it. Source: fitzyracing1/skill-github-x-latest-push.
+
+## How it works (plain English)
+1. Read the latest commit for the account.
+2. Search X for matching posts.
+3. Show both sides together.
+4. Stay read-only unless a later ask says push.
+
+## Key ideas
+- Latest push (the newest commit)
+- Related X posts (public mentions of that ship)
+- Combined view (one answer, two sources)
+
+## The actual code
+```
+# source: fitzyracing1/skill-github-x-latest-push
+commit = latest_github_push()
+posts = search_x(commit)
+show(commit, posts)
+```
+
+## Line-by-line translation
+1. latest_github_push() → “get the newest commit”
+2. search_x(commit) → “look for matching posts”
+3. show(...) → “put both in one view”
+
+## Decisions the program makes
+- If no commit exists → say so
+- If no X posts exist → say none found
+
+## What a person would notice
+Ship and mention in one glance.
+
+## Current status
+Barrage clone.
+
+## Next possible steps
+Open the HTML skill and ask for the latest push.
